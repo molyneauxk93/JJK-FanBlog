@@ -4,6 +4,19 @@ const { signToken } = require('../utils/auth');
 
 const resolvers = {
   Query: {
+    users: async () => {
+      return User.find().populate('blogPost');
+    },
+    user: async (parent, { username }) => {
+      return User.findOne({ username }).populate('blogPost');
+    },
+    blogposts: async (parent, { username }) => {
+      const params = username ? { username } : {};
+      return BlogPost.find(params);
+    },
+    blogpost: async (parent, { postId }) => {
+      return BlogPost.findOne({ _id: postId });
+    },
     me: async (parent, args, context) => {
       if (context.user) { 
                   const user = await User.findOne({ _id: context.user._id });
