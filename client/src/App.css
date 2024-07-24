@@ -1,3 +1,108 @@
-/* import Akuphocus banner font  */
-@import url('https://fonts.googleapis.com/css2?family=Courgette&family=Josefin+Sans:ital@0;1&family=Kalam&family=Lobster&family=Shantell+Sans:ital,wght@1,300&display=swap');
+/* homepage welcome font */
+@import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
+/* CSS for Nav banner */
 
+/* sign up button css  */
+
+.jjk-nav {
+    font-family: "Megrim", system-ui;
+    font-weight: 900;
+    font-style: normal;
+    padding-left: 10px;
+}
+
+.navbar {
+    background-color: rgb(58, 50, 102);
+    border: 2px solid rgb(109, 94, 190);
+}
+
+.login-button {
+    width: 80px;
+    height: 30px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #4d59ff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.login-button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
+
+/* CSS for Footer */
+
+.footerhead {
+    color:white;
+    text-align:center;
+}
+
+/* CSS for home page */
+
+.homepg-welcome {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: homepg-welcome 1s ease-in-out infinite alternate;
+    padding-top: 70px;
+    padding-bottom: 30px;
+}
+
+/* animated glow for welcome sorceror text */
+@keyframes homepg-welcome {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #041e94, 0 0 40px #1229aa, 0 0 50px #111fec, 0 0 60px #2d41b4, 0 0 70px #0f00e6;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #4d59ff, 0 0 40px #4d68ff, 0 0 50px #4d59ff, 0 0 60px #4d68ff, 0 0 70px #4d68ff, 0 0 80px #4d59ff;
+    }
+}
+
+/* sign up button css  */
+
+.wrap {
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.button {
+    width: 180px;
+    height: 45px;
+    font-family: 'Roboto', sans-serif;
+    font-size: 14px;
+    text-transform: uppercase;
+    letter-spacing: 2.5px;
+    font-weight: 500;
+    color: #000;
+    background-color: #4d59ff;
+    border: none;
+    border-radius: 45px;
+    box-shadow: 0px 8px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease 0s;
+    cursor: pointer;
+    outline: none;
+}
+
+.button:hover {
+    background-color: #2EE59D;
+    box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
+    color: #fff;
+    transform: translateY(-7px);
+}
