@@ -9,6 +9,17 @@
     font-weight: 900;
     font-style: normal;
     padding-left: 10px;
+    color: white;
+    text-decoration: none;
+}
+
+.nav-lgo-btn {
+    margin: 5px;
+}
+
+.navbar-brand:focus,
+.navbar-brand:hover {
+    color: white;
 }
 
 .navbar {
@@ -44,8 +55,8 @@
 /* CSS for Footer */
 
 .footerhead {
-    color:white;
-    text-align:center;
+    color: white;
+    text-align: center;
 }
 
 /* CSS for home page */
@@ -105,4 +116,108 @@
     box-shadow: 0px 15px 20px rgba(46, 229, 157, 0.4);
     color: #fff;
     transform: translateY(-7px);
+}
+
+/* Sign Up page CSS */
+
+.signup-container {
+    text-align: center;
+    padding: 30px;
+}
+
+.signup-input {
+    margin: 20px;
+}
+
+input {
+    border: none;
+    outline: none;
+    display: inline-block;
+    height: 45px;
+    vertical-align: middle;
+    bottom: 14px;
+    right: 9px;
+    border-radius: 22px;
+    width: 250px;
+    box-sizing: border-box;
+    padding: 0 18px;
+}
+
+.signup-logo {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: signup-logo 1s ease-in-out infinite alternate;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/* animated glow for sign up text */
+@keyframes signup-logo {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #041e94, 0 0 40px #1229aa, 0 0 50px #111fec, 0 0 60px #2d41b4, 0 0 70px #0f00e6;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #4d59ff, 0 0 40px #4d68ff, 0 0 50px #4d59ff, 0 0 60px #4d68ff, 0 0 70px #4d68ff, 0 0 80px #4d59ff;
+    }
+}
+
+/* Login page css */
+
+/* Sign Up page CSS */
+
+.login-container {
+    text-align: center;
+    padding: 30px;
+}
+
+.login-input {
+    margin: 20px;
+}
+
+.login-logo {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: login-logo 1s ease-in-out infinite alternate;
+    padding-top: 20px;
+    padding-bottom: 30px;
+}
+
+/* animated glow for login text */
+@keyframes login-logo {
+    from {
+        text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #041e94, 0 0 40px #1229aa, 0 0 50px #111fec, 0 0 60px #2d41b4, 0 0 70px #0f00e6;
+    }
+
+    to {
+        text-shadow: 0 0 20px #fff, 0 0 30px #4d59ff, 0 0 40px #4d68ff, 0 0 50px #4d59ff, 0 0 60px #4d68ff, 0 0 70px #4d68ff, 0 0 80px #4d59ff;
+    }
+}
+
+/* Footer CSS  */
+
+.solid-footer {
+    margin-top:30px;
+    border-top: 5px solid rgb(109, 94, 190);
+}
+
+
+.footer-logo {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 30px;
+    color: #fff;
+    text-align: center;
+    animation: login-logo 1s ease-in-out infinite alternate;
+    padding-top: 20px;
+    padding-bottom: 30px;
 }

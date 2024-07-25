@@ -5,8 +5,8 @@ const Footer = () => {
     return (
         <div>
         {/* Beginning of Footer section */ }
-        < hr class="solid" ></hr >
-        <h2 className="footerhead">Footer will start here</h2>
+        < hr className="solid-footer" ></hr >
+        <h2 className="footerhead footer-logo">Connect with Us</h2>
 
         <div className="footer">
 
