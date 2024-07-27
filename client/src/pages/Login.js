@@ -1,14 +1,14 @@
 import React, { useState } from 'react';
 import { useMutation } from "@apollo/client";
 import { Link } from "react-router-dom";
-import { LOGIN } from "../../utils/mutations";
-import Auth from "../../utils/auth";
+import { LOGIN } from "../utils/mutations";
+import Auth from "../utils/auth";
 
 
 
-const Login = () => {
+const Login = (props) => {
 
-    const [formState, setFormState] = useState({ username: "", password: "" });
+    const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN);
 
     const handleFormSubmit = async (event) => {
@@ -17,7 +17,7 @@ const Login = () => {
         try {
             const mutationResponse = await login({
                 variables: {
-                    username: formState.username,
+                    email: formState.email,
                     password: formState.password,
                 },
             });
