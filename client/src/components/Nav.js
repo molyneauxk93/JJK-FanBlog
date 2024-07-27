@@ -4,6 +4,7 @@ import { Link } from 'react-router-dom';
 
 const Navbar = () => {
 
+    const { isLoggedIn } = this.state;
 
     return (
         <nav className="navbar">
@@ -15,7 +16,15 @@ const Navbar = () => {
                 </a>
                 </Link>
 
-                <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Login</button></Link>
+                {
+                    isLoggedIn
+                    ? (
+                        <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Login</button></Link>
+                    )
+                    : (
+                        <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Logout</button></Link>
+                    )
+                }
             </div>
         </nav>
     );
