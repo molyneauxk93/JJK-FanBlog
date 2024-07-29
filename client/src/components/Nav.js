@@ -6,6 +6,11 @@ const Navbar = () => {
 
     const isLoggedIn = Auth.loggedIn();
 
+    const handleLogout = () => {
+        Auth.logout();
+    };
+
+
     return (
         <nav className="navbar">
             <div className="container-fluid nav-lgo-btn">
@@ -18,11 +23,11 @@ const Navbar = () => {
 
                 {isLoggedIn
                     ? (
-                        <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Logout</button></Link>
+                        <Link to="/" onClick={handleLogout}><button type="button" className="login-button btn btn-primary btn-sm">Logout</button></Link>
                     )
                     : (
                         <>
-                        <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Login</button></Link>
+                            <Link to="/login"><button type="button" className="login-button btn btn-primary btn-sm">Login</button></Link>
                         </>
                     )}
             </div>
