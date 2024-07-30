@@ -221,3 +221,38 @@ input {
     padding-top: 20px;
     padding-bottom: 30px;
 }
+
+/* CSS for Blog post titles */
+
+.post-title {
+    margin: 20px auto;
+    padding: 5px;
+    border-radius: 40px;
+    height: 140px;
+    background-color:rgb(58, 50, 102);
+    border: 2px solid rgb(109, 94, 190);
+}
+
+.card-title {
+    padding-bottom: 20px;
+}
+
+.blog-title {
+    font-family: "Megrim", system-ui;
+    font-weight: 200;
+    font-style: normal;
+    font-size: 25px;
+    color: #fff;
+    text-align: center;
+    animation: login-logo 1s ease-in-out infinite alternate;
+    text-wrap:wrap;
+
+}
+
+/* handle overflow for card titles */
+.cut-text { 
+    text-overflow: ellipsis;
+    overflow: hidden; 
+    white-space: nowrap;
+    text-align: center;
+}
