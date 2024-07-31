@@ -1,3 +1,9 @@
+/* add padding so content begins below nav on page */
+body {
+    padding-top: 60px; 
+    padding-bottom: 100px;
+}
+
 /* homepage welcome font */
 @import url('https://fonts.googleapis.com/css2?family=Megrim&display=swap');
 /* CSS for Nav banner */
@@ -22,7 +28,12 @@
     color: white;
 }
 
+/* position, width and z-index help with sticky navbar */
 .navbar {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    z-index: 9999;
     background-color: rgb(58, 50, 102);
     border: 2px solid rgb(109, 94, 190);
 }
@@ -204,8 +215,11 @@ input {
 
 /* Footer CSS  */
 
-.solid-footer {
-    margin-top:30px;
+.footer {
+    position: fixed;
+    bottom: 0;
+    width:100%;
+    background-color: rgb(58, 50, 102);
     border-top: 5px solid rgb(109, 94, 190);
 }
 
@@ -218,8 +232,6 @@ input {
     color: #fff;
     text-align: center;
     animation: login-logo 1s ease-in-out infinite alternate;
-    padding-top: 20px;
-    padding-bottom: 30px;
 }
 
 /* CSS for Blog post titles */
