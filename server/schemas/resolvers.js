@@ -64,19 +64,6 @@ const resolvers = {
       throw new AuthenticationError('You need to be logged in!');
       
     },
-    addFavorite: async (parent, { postId }, context) => {
-      if (context.user) {
-        const blogPost = await BlogPost.findOne({ _id: postId});
-
-        const user = await User.findOneAndUpdate(
-          { _id: context.user._id },
-          { $addToSet: { favorites: blogPost._id } }
-        );
-
-        return blogPost;
-      }
-      throw new AuthenticationError('You need to be logged in!');
-    },
   }
 };
 
