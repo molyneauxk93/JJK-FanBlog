@@ -1,22 +1,52 @@
 import React, { useState } from 'react';
-import { useRef } from 'react';
+import { useMutation } from '@apollo/client';
+import Auth from './untils/auth';
+import ADD_USER from './utils/mutations';
 
 
+const SignUp = (props) => {
 
-const SignUp = () => {
+    // set default form state with email and password having no value 
+    // assign ADD_USER mutation to addUser
+    const [formState, setFormState] = useState({ email: '', password:''});
+    const [addUser] = useMutation(ADD_USER);
+
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        //await mutation response and pass in username, email, and password variables and after this is complete set token and login
+        const mutationResponse = await addUser({
+            variables: {
+                username: formState.username,
+                email: formState.email,
+                password: formState.password,
+            },
+        });
+        const token = mutationResponse.data.addUser.token;
+        Auth.login(token);
+    };
+
+    //handle change of formState when user interacts with fields on screen
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
 
 
     return (
         <div className="signup-container">
             <p className="fs-1 fw-bold text-center signup-logo">Sign Up</p>
-            <form>
+            <form onSubmmit={handleFormSubmit}>
                 <div className="signup-input">
                     <input
                         placeholder="Username"
                         name="username"
                         type="username"
                         id="username"
-                    //onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="signup-input">
@@ -25,7 +55,7 @@ const SignUp = () => {
                         name="email"
                         type="email"
                         id="email"
-                    //onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="signup-input">
@@ -34,7 +64,7 @@ const SignUp = () => {
                         name="password"
                         type="password"
                         id="password"
-                    //onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="signup-input">
@@ -43,7 +73,7 @@ const SignUp = () => {
                         name="confirm-password"
                         type="password"
                         id="confirm-password"
-                    //onChange={handleChange}
+                        onChange={handleChange}
                     />
                 </div>
                 <div className="flex-row flex-end">
