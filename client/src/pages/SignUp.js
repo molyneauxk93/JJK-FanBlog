@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
-import Auth from './untils/auth';
-import ADD_USER from './utils/mutations';
+import Auth from '../utils/auth';
+import { ADD_USER } from '../utils/mutations';
 
 
 const SignUp = (props) => {
@@ -39,7 +39,7 @@ const SignUp = (props) => {
     return (
         <div className="signup-container">
             <p className="fs-1 fw-bold text-center signup-logo">Sign Up</p>
-            <form onSubmmit={handleFormSubmit}>
+            <form onSubmit={handleFormSubmit}>
                 <div className="signup-input">
                     <input
                         placeholder="Username"
