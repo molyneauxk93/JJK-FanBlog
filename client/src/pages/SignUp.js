@@ -4,7 +4,7 @@ import Auth from '../utils/auth';
 import { ADD_USER } from '../utils/mutations';
 
 
-const SignUp = (props) => {
+const SignUp = () => {
 
     // set default form state with email and password having no value 
     // assign ADD_USER mutation to addUser

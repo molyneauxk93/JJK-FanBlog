@@ -1,5 +1,5 @@
 import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import {
   ApolloClient,
   InMemoryCache,
@@ -19,6 +19,7 @@ import SignUp from './pages/SignUp';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Profile from './pages/Profile';
+import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
   uri: '/graphql',
@@ -39,8 +40,11 @@ const client = new ApolloClient({
   cache: new InMemoryCache(),
 });
 
+const isLoggedIn = Auth.loggedIn();
+
 
 function App() {
+
 
   return (
     <ApolloProvider client={client}>
@@ -52,9 +56,12 @@ function App() {
           {/* begin routes to swap out pages */}
           <Routes>
 
+          {/* If user is not logged int route to home, else navigate to blog */}
             <Route 
             path="/"
-            element={<HomePage />}
+            element={ !isLoggedIn  
+              ? <HomePage />
+              : <Navigate to="/blog" replace />}
           />
           
           <Route
