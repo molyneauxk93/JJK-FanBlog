@@ -32,7 +32,29 @@ const AddPost = () => {
     
     return (
         <div>
-
+            <form onSubmit={handleFormSubmit}>
+                <div>
+                    <input 
+                    placeholder="Title"
+                    name="title"
+                    type="text"
+                    id="title"
+                    onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <input
+                    placeholder="Enter Details"
+                    name="description"
+                    type="text"
+                    id="description"
+                    onChange={handleChange}
+                    />
+                </div>
+                <div>
+                    <button className="button" type="submit">Create Post</button>
+                </div>
+            </form>
         </div>
     );
 }
