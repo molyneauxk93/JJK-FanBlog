@@ -1,55 +1,44 @@
 import React, { useState } from 'react';
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
-import Auth from '../utils/auth';
+
+
 
 
 const AddPost = () => {
 
-    const [formState, setFormState] = useState({ title: '', description: '', postAuthor: ''});
-    const [addpost, { error }] = useMutation(ADD_POST);
+    const [formState, setFormState] = useState({ title: '', description: '', postAuthor: '' });
+    const [addpost] = useMutation(ADD_POST);
 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
-            const mutationResponse = await addpost({
-                variables: {
-                    title: formState.title,
-                    description: formState.description,
-                    postAuthor: formState.postAuthor,
-                },
-            });
-            window.location.reload(false);
+        const mutationResponse = await addpost({
+            variables: {
+                title: formState.title,
+                description: formState.description,
+                postAuthor: 'joshymol',
+            },
+        });
+        window.location.reload(false);
     }
-    
-        const handleChange = (event) => {
-            const { name, value } = event.target;
-            setFormState({
-                ...formState,
-                [name]: value,
-            });
-        };
-    
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
+    };
+
     return (
-        <div>
+        <div className="newpost-container">
             <form onSubmit={handleFormSubmit}>
-                <div>
-                    <input 
-                    placeholder="Title"
-                    name="title"
-                    type="text"
-                    id="title"
-                    onChange={handleChange}
-                    />
+                <div className="mb-3 newpost-input" >
+                    <input type="title" className="form-control" id="title" placeholder="Title"  name="title" onChange={handleChange}/>
                 </div>
-                <div>
-                    <input
-                    placeholder="Enter Details"
-                    name="description"
-                    type="text"
-                    id="description"
-                    onChange={handleChange}
-                    />
+                <div className="mb-3 newpost-input">
+                    <textarea className="form-control" type="description" id="description" rows="10" placeholder="Description" name="description" onChange={handleChange}></textarea>
                 </div>
                 <div>
                     <button className="button" type="submit">Create Post</button>

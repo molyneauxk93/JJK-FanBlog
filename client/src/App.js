@@ -9,16 +9,20 @@ import {
 import { setContext } from '@apollo/client/link/context';
 
 import './App.css';
+
+// imports for components
 import Nav from './components/Nav';
 import Footer from './components/Footer';
 import BlogPosts from './components/BlogPosts';
 
+// imports for pages 
 import HomePage from './pages/HomePage';
 import Login from './pages/Login';
 import SignUp from './pages/SignUp';
 import Blog from './pages/Blog';
 import BlogPost from './pages/BlogPost';
 import Profile from './pages/Profile';
+import AddPost from './pages/NewPost'
 import Auth from './utils/auth';
 
 const httpLink = createHttpLink({
@@ -87,6 +91,14 @@ function App() {
           <Route
           path="/blogpost"
           element={<BlogPost />} 
+          />
+
+      {/* if user is logged in route to add post, else re-route to login */}
+          <Route 
+            path="/newpost"
+            element={ isLoggedIn  
+              ? <AddPost />
+              : <Navigate to="/login" replace />}
           />
 
           </Routes>

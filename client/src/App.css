@@ -268,3 +268,20 @@ input {
     white-space: nowrap;
     text-align: center;
 }
+
+/* css for create post page */
+
+.newpost-container {
+    text-align: center;
+    padding: 30px;
+}
+
+.newpost-input { 
+    margin: 20px;
+    padding: 10px;
+}
+
+.newpost-desc {
+    height: 150px;
+}
+
