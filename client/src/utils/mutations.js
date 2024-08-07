@@ -29,7 +29,6 @@ mutation Mutation($title: String!, $description: String!, $postAuthor: String!) 
     title
     description
     postAuthor
-    createdAt
   }
 }
 `;

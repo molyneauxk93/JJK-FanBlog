@@ -22,7 +22,6 @@ const typeDefs = gql`
     _id: ID
     title: String!
     description: String!
-    createdAt: String
     postAuthor: String!
     comments: [Comment]
   }
@@ -31,7 +30,6 @@ const typeDefs = gql`
     _id: ID
     commentText: String!
     commentAuthor: String!
-    createdAt: String
   }
 
   type Auth { 

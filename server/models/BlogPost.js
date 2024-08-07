@@ -12,11 +12,6 @@ const blogSchema = new Schema({
     type: String,
     required: true,
   },
-  createdAt: {
-    type: Date,
-    default: Date.now,
-    get: (timestamp) => dateFormat(timestamp),
-  },
   postAuthor: {
     type: String,
     required: true,
@@ -32,11 +27,6 @@ const blogSchema = new Schema({
       commentAuthor: {
         type: String,
         required: true,
-      },
-      createdAt: {
-        type: Date,
-        default: Date.now,
-        get: (timestamp) => dateFormat(timestamp),
       },
     }
   ]

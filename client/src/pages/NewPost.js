@@ -1,6 +1,10 @@
 import React, { useState } from 'react';
+import { useQuery } from "@apollo/client";
+
+
 import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
+import { QUERY_ME } from '../utils/queries';
 
 
 
@@ -10,14 +14,22 @@ const AddPost = () => {
     const [formState, setFormState] = useState({ title: '', description: '', postAuthor: '' });
     const [addpost] = useMutation(ADD_POST);
 
+    //  use query me to obtain username for currently logged in user
+    const { loading, data } = useQuery(QUERY_ME);
+
+
+    // handle form submit and pass variabled to addpost mutation
     const handleFormSubmit = async (event) => {
         event.preventDefault();
+
+        const userFilter = await data;
+        console.log(userFilter.me.username);
 
         const mutationResponse = await addpost({
             variables: {
                 title: formState.title,
                 description: formState.description,
-                postAuthor: 'joshymol',
+                postAuthor: userFilter.me.username,
             },
         });
         window.location.reload(false);
