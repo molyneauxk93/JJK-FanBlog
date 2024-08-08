@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
 import { useQuery } from "@apollo/client";
-
-
 import { useMutation } from '@apollo/client';
+
+//import add post mutation and query me
 import { ADD_POST } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 
@@ -22,9 +22,11 @@ const AddPost = () => {
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
+        //get current logged in username using query me
         const userFilter = await data;
         console.log(userFilter.me.username);
 
+        //pass form variables along with username retrieved from query to addpost mutation
         const mutationResponse = await addpost({
             variables: {
                 title: formState.title,

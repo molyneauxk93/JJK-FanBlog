@@ -15,3 +15,14 @@ export const QUERY_ME = gql`
   }
 }
 `;
+
+export const BLOG_POSTS = gql`
+{
+  blogposts {
+    _id
+    title
+    description
+    postAuthor
+  }
+}
+`;
