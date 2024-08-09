@@ -85,12 +85,16 @@ function App() {
 
           <Route
           path="/blog"
-          element={<Blog />}
+          element={ isLoggedIn  
+            ? <Blog />
+            : <Navigate to="/login" replace />}
           />
 
           <Route
           path="/blogpost"
-          element={<BlogPost />} 
+          element={ isLoggedIn
+          ? <BlogPost />
+          : <Navigate to="/login" replace /> } 
           />
 
       {/* if user is logged in route to add post, else re-route to login */}
