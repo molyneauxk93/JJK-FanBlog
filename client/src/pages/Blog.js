@@ -11,16 +11,16 @@ export default function Blog() {
 
     const  blogposts = [
         {
-            title: "Hello",
+            title: "Test title 1 is a test",
         },
         {
-            title: "Hello",
+            title: "Test title 2 is a test",
         },
         {
-            title: "Hello",
+            title: "Test title 3 is a test",
         },
         {
-            title: "Hello",
+            title: "Test title 4 is a test",
         },
         {
             title: "Hello",

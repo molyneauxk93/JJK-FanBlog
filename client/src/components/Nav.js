@@ -28,8 +28,9 @@ const Navbar = () => {
                                 Menu
                             </button>
                             <ul className="dropdown-menu">
-                                <Link to="/newpost"><li className="dropdown-item">New Post</li></Link>
-                                <Link to="/" onClick={handleLogout}><li className="dropdown-item">Logout</li></Link>
+                                <Link style={{ textDecoration: 'none' }} to="/blog"><li className="dropdown-item">Blog</li></Link>
+                                <Link style={{ textDecoration: 'none' }} to="/newpost"><li className="dropdown-item">New Post</li></Link>
+                                <Link style={{ textDecoration: 'none' }} to="/" onClick={handleLogout}><li className="dropdown-item">Logout</li></Link>
                             </ul>
                         </div>
                     )
