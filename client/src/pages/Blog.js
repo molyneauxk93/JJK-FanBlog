@@ -8,6 +8,9 @@ export default function Blog() {
 
     //use query to bring in blogposts
     const { loading, data } = useQuery(BLOG_POSTS);
+    const blogposts1 = data?.blogposts;
+
+    console.log(blogposts1);
 
     const  blogposts = [
         {
