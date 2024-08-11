@@ -10,7 +10,6 @@ export default function Blog() {
     const { loading, data } = useQuery(BLOG_POSTS);
     const blogposts1 = data?.blogposts;
 
-    console.log(blogposts1);
 
     const  blogposts = [
         {
@@ -39,12 +38,19 @@ export default function Blog() {
         },
     ];
 
-    // return blogpost object with data to be loaded into the photos page
+    // If still loading data, return 'loading' , otherwise map blogpost data
+    if(loading) {
+        return (
+            <div>
+                <p className="blog-title">Loading....</p>
+            </div>
+        );
+    }
     return (
 
         <div>
             {
-                blogposts.map((posttitles) => <BlogPosts data={posttitles} />)
+                blogposts1.map((posttitles) => <BlogPosts data={posttitles} />)
             }
         </div>
     );
