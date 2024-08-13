@@ -4,16 +4,19 @@ export const QUERY_ME = gql`
 {
  me {
     _id
+    username
+    email
     blogPost {
       _id
       title
       description
+      postAuthor
       comments {
-        commentText
+        _id
         commentAuthor
+        commentText
       }
     }
-    username
   }
 }
 `;

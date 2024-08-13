@@ -22,6 +22,7 @@ const Blog = () => {
     return (
 
         <div>
+            <p className="fs-1 fw-bold text-center signup-logo">Blog Posts</p>
             {
                 blogposts.map((posttitles) => <BlogPosts data={posttitles} />)
             }

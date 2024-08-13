@@ -80,7 +80,9 @@ function App() {
 
           <Route
           path="/profile"
-          element={<Profile />} 
+          element={ isLoggedIn  
+            ? <Profile />
+            : <Navigate to="/login" replace />}
           />
 
           <Route

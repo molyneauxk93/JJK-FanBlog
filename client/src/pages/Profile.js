@@ -10,9 +10,9 @@ const Profile = () => {
 
     //use query to bring in username and user's blogposts
     const { loading, data } = useQuery(QUERY_ME);
-    const me = data?.me.blogPost;
+    const me = data?.me;
 
-    console.log(me);
+    console.log(data);
 
     // If still loading data, return 'loading' , otherwise map blogpost data
     if (loading) {
@@ -25,10 +25,10 @@ const Profile = () => {
 
     return (
         <div>
-            <p className="blog-title">'s Posts</p>
+            <p className="fs-1 fw-bold text-center signup-logo">{me.username}'s Posts</p>
 
         {
-            me.map((myPosts) => <BlogPosts data={myPosts}/>)
+            me.blogPost?.map((myPosts) => <BlogPosts data={myPosts}/>)
         }
 
         </div>
