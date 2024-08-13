@@ -6,6 +6,8 @@ export const QUERY_ME = gql`
     _id
     blogPost {
       _id
+      title
+      description
       comments {
         commentText
         commentAuthor

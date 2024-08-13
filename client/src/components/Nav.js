@@ -28,6 +28,7 @@ const Navbar = () => {
                                 Menu
                             </button>
                             <ul className="dropdown-menu">
+                            <Link style={{ textDecoration: 'none' }} to="/profile"><li className="dropdown-item">My Profile</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/blog"><li className="dropdown-item">Blog</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/newpost"><li className="dropdown-item">New Post</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/" onClick={handleLogout}><li className="dropdown-item">Logout</li></Link>
