@@ -31,3 +31,19 @@ export const BLOG_POSTS = gql`
   }
 }
 `;
+
+export const BLOG_POST = gql`
+query Query($postId: ID!) {
+ blogpost(postId: $postId) {
+    _id
+    title
+    description
+    postAuthor
+    comments {
+      _id
+      commentAuthor
+      commentText
+    }
+  }
+}
+`;

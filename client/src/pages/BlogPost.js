@@ -2,6 +2,7 @@ import React from 'react';
 import { useParams } from "react-router-dom";
 import { useQuery } from "@apollo/client";
 
+import { BLOG_POST } from '../utils/queries';
 
 // Use params to get the id of a single blog post 
 // then will take the id and run a use query to find single blogpost 
@@ -11,9 +12,31 @@ import { useQuery } from "@apollo/client";
 
 const BlogPost = () => {
     
+    const { postId } = useParams();
+    console.log(postId);
+    
+    const { loading, data } = useQuery(BLOG_POST, {
+        variables: {
+            postId: postId,
+        },
+    });
+
+
+if (!data) {
+    return <p className="fs-1 fw-bold text-center signup-logo">No available data to show.</p>
+}
+
+const blogpost = data?.blogpost;
+console.log(data);
+
 
     return (
-        <p>Page to Render single blog post</p>
+        <div>
+            <p className="fs-1 fw-bold text-center signup-logo">{blogpost.title}</p>
+
+            <p>{blogpost.description}</p>
+
+        </div>
     );
 
 }

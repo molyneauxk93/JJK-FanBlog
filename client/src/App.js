@@ -93,7 +93,7 @@ function App() {
           />
 
           <Route
-          path="/blogpost"
+          path="/blogpost/:postId"
           element={ isLoggedIn
           ? <BlogPost />
           : <Navigate to="/login" replace /> } 

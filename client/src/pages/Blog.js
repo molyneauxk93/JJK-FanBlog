@@ -20,7 +20,7 @@ const Blog = () => {
         );
     }
     return (
-
+        // map blogpost titles to component which will render cards for each 
         <div>
             <p className="fs-1 fw-bold text-center signup-logo">Blog Posts</p>
             {
