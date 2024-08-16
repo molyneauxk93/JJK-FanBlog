@@ -31,10 +31,40 @@ console.log(data);
 
 
     return (
-        <div>
+        <div className="blogpost-container">
             <p className="fs-1 fw-bold text-center signup-logo">{blogpost.title}</p>
 
-            <p>{blogpost.description}</p>
+            <p className="blogpost-text border border-info-subtle">{blogpost.description}</p>
+
+            <p className="blogpost-text" style={{ textAlign:"right", margin: "25px"}}>Created by: {blogpost.postAuthor}</p>
+
+            {/* comment text input goes before comment section */}
+            <form>
+            <div className="comment-add-container">
+                    <input
+                        placeholder="Comment"
+                        name="email"
+                        type="email"
+                        id="email"
+                        // onChange={handleChange}
+                    />
+                    <button className="comment-button" type="submit">Post</button>
+                </div>
+            
+            </form>
+            
+            <p className="blogpost-text" style={{ textAlign:"left", margin: "25px", marginTop: "60px"}}>Comments:</p>
+            {/* comment section to be map for unordered list of comments TBA */}
+            <p className="blogpost-text border border-info-subtle">
+                <ul>
+                    <li>Comment number 1</li>
+                    <li>Comment number 2</li>
+                    <li>Comment number 3</li>
+                    <li>Comment number 4</li>
+                </ul>
+            </p>
+
+            
 
         </div>
     );
