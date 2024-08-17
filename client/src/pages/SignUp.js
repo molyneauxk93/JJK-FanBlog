@@ -67,7 +67,7 @@ const SignUp = () => {
                         onChange={handleChange}
                     />
                 </div>
-                <div className="signup-input">
+                {/* <div className="signup-input">
                     <input
                         placeholder="Confirm Password"
                         name="confirm-password"
@@ -75,7 +75,7 @@ const SignUp = () => {
                         id="confirm-password"
                         onChange={handleChange}
                     />
-                </div>
+                </div> */}
                 <div className="flex-row flex-end">
                     <button className="button" type="submit">SIGN UP</button>
                 </div>

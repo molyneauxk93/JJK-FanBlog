@@ -82,6 +82,29 @@ const resolvers = {
       }
       throw new AuthenticationError('You need to be logged in!');
     },
+    removePost: async (parent, { postId }, context) => {
+      if (context.user) {
+        const blogpost = await BlogPost.findOne({ _id: postId });
+
+        if(!property) {
+          throw new Error("Blogpost not found");
+        }
+
+        if(blogpost.postAuthor.toString() !== context.user._id) {
+          throw new AuthenticationError('You are not authorized to remove this post');
+        }
+
+        await blogpost.remove();
+
+        await User.findOneAndUpdate(
+          { _id: context.user._id },
+          { $pull: {BlogPost: blogpost._id } }
+        );
+
+        return blogpost;
+      }
+      throw new AuthenticationError('You need to be logged in!');
+    },
   }
 };
 

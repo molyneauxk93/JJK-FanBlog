@@ -6,6 +6,8 @@ import { useMutation } from '@apollo/client';
 import { ADD_POST } from '../utils/mutations';
 import { QUERY_ME } from '../utils/queries';
 
+import { useNavigate } from 'react-router-dom';
+
 
 
 
@@ -13,6 +15,9 @@ const AddPost = () => {
 
     const [formState, setFormState] = useState({ title: '', description: '', postAuthor: '' });
     const [addpost] = useMutation(ADD_POST);
+
+    // navigate
+    const navigate = useNavigate();
 
     //  use query me to obtain username for currently logged in user
     const { loading, data } = useQuery(QUERY_ME);
@@ -34,7 +39,7 @@ const AddPost = () => {
                 postAuthor: userFilter.me.username,
             },
         });
-        window.alert("Post added successfully")
+        navigate("/blog");
         window.location.reload(false);
     }
 

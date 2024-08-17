@@ -35,7 +35,6 @@ const BlogPost = () => {
                 commentText: formState.commentText,
             },
         });
-        window.alert("Comment added successfully")
         window.location.reload(false);
     }
 
