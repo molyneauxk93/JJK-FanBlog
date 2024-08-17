@@ -18,9 +18,9 @@ const resolvers = {
       return BlogPost.findOne({ _id: postId });
     },
     me: async (parent, args, context) => {
-      if (context.user) { 
-                  const user = await User.findOne({ _id: context.user._id }).populate("blogPost");
-                  return user;
+      if (context.user) {
+        const user = await User.findOne({ _id: context.user._id }).populate("blogPost");
+        return user;
       }
       throw new AuthenticationError('You need to be logged in!');
     },
@@ -48,8 +48,8 @@ const resolvers = {
       const token = signToken(user);
       return { token, user };
     },
-    addPost: async (parent, {title, description, postAuthor}, context) => {
-      if(context.user) {
+    addPost: async (parent, { title, description, postAuthor }, context) => {
+      if (context.user) {
         const blogPost = await BlogPost.create({
           title, description, postAuthor,
         });
@@ -62,7 +62,25 @@ const resolvers = {
         return blogPost;
       }
       throw new AuthenticationError('You need to be logged in!');
-      
+
+    },
+    addComment: async (parent, { postId, commentText }, context) => {
+      if (context.user) {
+
+        return BlogPost.findOneAndUpdate(
+          { _id: postId },
+          {
+            $addToSet: {
+              comments: { commentText, commentAuthor: context.user.username },
+            },
+          },
+          {
+            new: true,
+            runValidators: true,
+          }
+        );
+      }
+      throw new AuthenticationError('You need to be logged in!');
     },
   }
 };

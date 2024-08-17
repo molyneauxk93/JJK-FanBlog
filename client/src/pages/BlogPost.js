@@ -21,6 +21,15 @@ const BlogPost = () => {
         },
     });
 
+    const handleFormSubmit = async (event) => {
+        event.preventDefault();
+
+        // pass variables to add comment to identified blogpost
+        const mutationResponse = await ADD_COMMENT({
+            
+        })
+    }
+
 
 if (!data) {
     return <p className="fs-1 fw-bold text-center signup-logo">No available data to show.</p>
@@ -39,14 +48,14 @@ console.log(data);
             <p className="blogpost-text" style={{ textAlign:"right", margin: "25px"}}>Created by: {blogpost.postAuthor}</p>
 
             {/* comment text input goes before comment section */}
-            <form>
+            <form onSubmit={handleFormSubmit}>
             <div className="comment-add-container">
                     <input
                         placeholder="Comment"
                         name="email"
                         type="email"
                         id="email"
-                        // onChange={handleChange}
+                        onChange={handleChange}
                     />
                     <button className="comment-button" type="submit">Post</button>
                 </div>
