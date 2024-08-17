@@ -1,8 +1,9 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { useParams } from "react-router-dom";
-import { useQuery } from "@apollo/client";
+import { useQuery, useMutation } from "@apollo/client";
 
 import { BLOG_POST } from '../utils/queries';
+import { ADD_COMMENT } from '../utils/mutations';
 
 // Use params to get the id of a single blog post 
 // then will take the id and run a use query to find single blogpost 
@@ -12,6 +13,9 @@ import { BLOG_POST } from '../utils/queries';
 
 const BlogPost = () => {
     
+    const [formState, setFormState] = useState({ commentText: '' });
+    const [addComment] = useMutation(ADD_COMMENT);
+
     const { postId } = useParams();
     console.log(postId);
     
@@ -25,9 +29,22 @@ const BlogPost = () => {
         event.preventDefault();
 
         // pass variables to add comment to identified blogpost
-        const mutationResponse = await ADD_COMMENT({
-            
-        })
+        const mutationResponse = await addComment({
+            variables: {
+                postId: postId,
+                commentText: formState.commentText,
+            },
+        });
+        window.alert("Comment added successfully")
+        window.location.reload(false);
+    }
+
+    const handleChange = (event) => {
+        const { name, value } = event.target;
+        setFormState({
+            ...formState,
+            [name]: value,
+        });
     }
 
 
@@ -52,9 +69,9 @@ console.log(data);
             <div className="comment-add-container">
                     <input
                         placeholder="Comment"
-                        name="email"
-                        type="email"
-                        id="email"
+                        name="commentText"
+                        type="commentText"
+                        id="commentText"
                         onChange={handleChange}
                     />
                     <button className="comment-button" type="submit">Post</button>
@@ -64,14 +81,16 @@ console.log(data);
             
             <p className="blogpost-text" style={{ textAlign:"left", margin: "25px", marginTop: "60px"}}>Comments:</p>
             {/* comment section to be map for unordered list of comments TBA */}
-            <p className="blogpost-text border border-info-subtle">
+            <div>
                 <ul>
-                    <li>Comment number 1</li>
-                    <li>Comment number 2</li>
-                    <li>Comment number 3</li>
-                    <li>Comment number 4</li>
+                    {blogpost.comments.map((comments) => (
+                        <div className="blogpost-text comment-border">
+                            <li>{comments.commentText}</li>
+                            <p>By: {comments.commentAuthor}</p>
+                        </div>
+                    ))}
                 </ul>
-            </p>
+            </div>
 
             
 
