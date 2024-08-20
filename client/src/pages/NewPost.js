@@ -39,7 +39,7 @@ const AddPost = () => {
                 postAuthor: userFilter.me.username,
             },
         });
-        navigate("/blog");
+        navigate("/");
         window.location.reload(false);
     }
 
