@@ -53,7 +53,7 @@ const AddPost = () => {
 
     return (
         <div className="newpost-container">
-            <p className="fs-1 fw-bold text-center login-logo">New Post</p>
+            <p className="fs-1 fw-bold text-center newpost-logo">New Post</p>
             <form onSubmit={handleFormSubmit}>
                 <div className="mb-3 newpost-input" >
                     <input type="title" className="form-control" id="title" placeholder="Title"  name="title" onChange={handleChange}/>

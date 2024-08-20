@@ -2,12 +2,19 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import Auth from "../utils/auth";
 
+import { useNavigate } from 'react-router-dom';
+
 const Navbar = () => {
 
     const isLoggedIn = Auth.loggedIn();
 
+      // navigate
+      const navigate = useNavigate();
+
     const handleLogout = () => {
+        navigate("/");
         Auth.logout();
+        window.location.reload(false);
     };
 
 
@@ -31,7 +38,7 @@ const Navbar = () => {
                             <Link style={{ textDecoration: 'none' }} to="/profile"><li className="dropdown-item">My Profile</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/blog"><li className="dropdown-item">Blog</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/newpost"><li className="dropdown-item">New Post</li></Link>
-                                <Link style={{ textDecoration: 'none' }} to="/" onClick={handleLogout}><li className="dropdown-item">Logout</li></Link>
+                                <li className="dropdown-item" onClick={handleLogout}>Logout</li>
                             </ul>
                         </div>
                     )

@@ -43,8 +43,8 @@ body {
 }
 
 .menu-button {
-    width: 100px;
-    height: 45px;
+    width: 80px;
+    height: 30px;
     font-family: 'Roboto', sans-serif;
     font-size: 14px;
     text-transform: uppercase;
@@ -119,8 +119,8 @@ body {
     color: #fff;
     text-align: center;
     animation: homepg-welcome 1s ease-in-out infinite alternate;
-    padding-top: 70px;
-    padding-bottom: 30px;
+    padding-top: 20px;
+    padding-bottom: 5px;
 }
 
 /* animated glow for welcome sorceror text */
@@ -310,6 +310,18 @@ input {
 
 /* css for create post page */
 
+.newpost-logo {
+    font-family: "Megrim", system-ui;
+    font-weight: 400;
+    font-style: normal;
+    font-size: 80px;
+    color: #fff;
+    text-align: center;
+    animation: login-logo 1s ease-in-out infinite alternate;
+    padding-top: 0px;
+    padding-bottom: 0px;
+}
+
 .newpost-container {
     text-align: center;
     padding: 30px;
@@ -381,3 +393,5 @@ font-weight: bolder;
     box-shadow: 10px 5px 5px rgb(108, 22, 158);
     margin-left: 0;
 }
+
+
