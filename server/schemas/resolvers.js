@@ -86,19 +86,21 @@ const resolvers = {
       if (context.user) {
         const blogpost = await BlogPost.findOne({ _id: postId });
 
-        if(!property) {
+        if(!blogpost) {
           throw new Error("Blogpost not found");
         }
 
-        if(blogpost.postAuthor.toString() !== context.user._id) {
+        if(blogpost.postAuthor.toString() !== context.user.username) {
           throw new AuthenticationError('You are not authorized to remove this post');
         }
 
-        await blogpost.remove();
+        await BlogPost.findOneAndDelete(
+          { _id: postId }
+        );
 
         await User.findOneAndUpdate(
           { _id: context.user._id },
-          { $pull: {BlogPost: blogpost._id } }
+          { $pull: { blogPost: blogpost._id } }
         );
 
         return blogpost;

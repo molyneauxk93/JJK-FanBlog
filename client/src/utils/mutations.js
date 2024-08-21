@@ -45,3 +45,19 @@ mutation Mutation($postId: ID!, $commentText: String!) {
 }
 `;
 
+export const REMOVE_POST = gql`
+mutation RemovePost($postId: ID!) {
+  removePost(postId: $postId) {
+    _id
+    title
+    postAuthor
+    description
+    comments {
+      _id
+      commentAuthor
+      commentText
+    }
+  }
+}
+`;
+

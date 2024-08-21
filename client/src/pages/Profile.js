@@ -1,7 +1,7 @@
 import React from 'react';
 import { useQuery } from "@apollo/client";
 
-import BlogPosts from '../components/BlogPosts';
+import MyPosts from '../components/MyPosts';
 import { QUERY_ME } from '../utils/queries';
 
 
@@ -28,7 +28,7 @@ const Profile = () => {
             <p className="fs-1 fw-bold text-center signup-logo">{me.username}'s Posts</p>
 
         {
-            me.blogPost?.map((myPosts) => <BlogPosts data={myPosts}/>)
+            me.blogPost?.map((myPosts) => <MyPosts data={myPosts}/>)
         }
 
         </div>
