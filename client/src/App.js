@@ -13,7 +13,6 @@ import './App.css';
 // imports for components
 import Nav from './components/Nav';
 import Footer from './components/Footer';
-import BlogPosts from './components/BlogPosts';
 
 // imports for pages 
 import HomePage from './pages/HomePage';

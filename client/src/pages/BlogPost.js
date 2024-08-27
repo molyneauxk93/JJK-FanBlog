@@ -5,11 +5,7 @@ import { useQuery, useMutation } from "@apollo/client";
 import { BLOG_POST } from '../utils/queries';
 import { ADD_COMMENT } from '../utils/mutations';
 
-// Use params to get the id of a single blog post 
-// then will take the id and run a use query to find single blogpost 
-// from there will layout how I want a single blog post page to look below 
-// on click from blog page and profile page - link to this page where you can see
-// full blogpost and comments if any
+
 
 const BlogPost = () => {
     
@@ -19,12 +15,14 @@ const BlogPost = () => {
     const { postId } = useParams();
     console.log(postId);
     
+    // retrieves single blogpost based on the blog post ID taken from the route params 
     const { loading, data } = useQuery(BLOG_POST, {
         variables: {
             postId: postId,
         },
     });
 
+    // passing post id and comment to mutation ADD_COMMENT and reloads the page once successfully completed 
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 
@@ -79,7 +77,7 @@ console.log(data);
             </form>
             
             <p className="blogpost-text" style={{ textAlign:"left", margin: "25px", marginTop: "60px"}}>Comments:</p>
-            {/* comment section to be map for unordered list of comments TBA */}
+            {/* comment section to be map for list of comments */}
             <div>
                 <ul>
                     {blogpost.comments.map((comments) => (

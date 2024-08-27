@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Link } from 'react-router-dom';
 import Auth from "../utils/auth";
 
@@ -8,9 +8,10 @@ const Navbar = () => {
 
     const isLoggedIn = Auth.loggedIn();
 
-      // navigate
-      const navigate = useNavigate();
+    // navigate
+    const navigate = useNavigate();
 
+    //re-routes to the landing page of the blog and user logged out using auth utils
     const handleLogout = () => {
         navigate("/");
         Auth.logout();
@@ -27,7 +28,7 @@ const Navbar = () => {
                     Jujutsu Kaisen Blog
                 </a>
                 </Link>
-
+                {/* If the user is logged in, they will be presented with a menu button in place of the login button */}
                 {isLoggedIn
                     ? (
                         <div className="dropdown-center">
@@ -35,7 +36,7 @@ const Navbar = () => {
                                 Menu
                             </button>
                             <ul className="dropdown-menu">
-                            <Link style={{ textDecoration: 'none' }} to="/profile"><li className="dropdown-item">My Profile</li></Link>
+                                <Link style={{ textDecoration: 'none' }} to="/profile"><li className="dropdown-item">My Profile</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/blog"><li className="dropdown-item">Blog</li></Link>
                                 <Link style={{ textDecoration: 'none' }} to="/newpost"><li className="dropdown-item">New Post</li></Link>
                                 <li className="dropdown-item" onClick={handleLogout}>Logout</li>

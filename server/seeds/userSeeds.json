@@ -8,5 +8,10 @@
         "username": "lizmol",
         "email": "lizmol@live.com",
         "password": "donuts2002"
+    },
+    {
+        "username": "testAccount",
+        "email": "test@live.com",
+        "password": "test123"
     }
 ]

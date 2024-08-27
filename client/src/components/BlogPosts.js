@@ -1,9 +1,10 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 
+// Component to render all mapped blog posts from our database to the main blog page 
 
 const BlogPosts = (props) => {
-
+// produces one card per blog post which displays the title and a button which gives the user the option to view the entire post 
     return (
         <div className="card w-75 text-center post-title">
             <div className="card-body">

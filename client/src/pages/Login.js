@@ -10,6 +10,8 @@ const Login = () => {
     const [formState, setFormState] = useState({ email: "", password: "" });
     const [login, { error }] = useMutation(LOGIN);
 
+    // on submit the email and password will be passed to the login mutation and the token will then be used to login via auth utils
+    // otherwise error on login attempt
     const handleFormSubmit = async (event) => {
         event.preventDefault();
 

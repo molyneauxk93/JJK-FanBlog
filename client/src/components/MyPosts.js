@@ -8,6 +8,7 @@ const MyPosts = (props) => {
 
     const [deletePost] = useMutation(REMOVE_POST);
 
+    // Allows the logged in user on click to delete any of their personal posts by calling the REMOVE_POST mutation
     const handlePostDelete = async () => {
 
         const mutationResponse = await  deletePost({
@@ -17,7 +18,7 @@ const MyPosts = (props) => {
         });
         window.location.reload(false);
     }
-
+    // creates cards for mapped blog posts from the database which belong to the logged in user and presents them on the "my profile" page
     return (
         <div className="card w-75 text-center post-title">
             <div className="card-body">
