@@ -60,7 +60,7 @@ My Jujutsu Kaisen Fan Blog is designed to provide a community for fans of the an
 
   ![alt text](client/public/images/signup.jpg)
 
- * Test login account: email: test@email.com , password: test123 
+ * Test login account: email: test@live.com , password: test123 
  
   ![alt text](client/public/images/login.jpg)
 
